@@ -2,4 +2,8 @@
 	<title>Test</title>
 </svelte:head>
 
-<h1>This page is my test!!</h1>
+<script>
+  let title = 'This page is my test!!'
+</script>
+
+<h1>{ title.toUpperCase() }</h1>
