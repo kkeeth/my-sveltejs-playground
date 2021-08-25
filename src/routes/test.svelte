@@ -11,7 +11,7 @@
 <style>
 	h1 {
 		color: purple;
-		font-family: 'Comic Sans MS', cursive;
-		font-size: 2em;
+		font-family: Josefin Sans, 'Comic Sans MS', cursive;
+		font-size: 2rem;
 	}
 </style>
