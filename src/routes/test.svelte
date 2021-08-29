@@ -130,11 +130,6 @@
   }
 
   button {
-    max-width: 200px;
     border-radius: 8px;
-  }
-  button:hover {
-    cursor: pointer;
-    background: skyblue;
   }
 </style>

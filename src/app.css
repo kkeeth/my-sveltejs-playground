@@ -115,3 +115,6 @@ hr {
 button {
 	max-width: 200px;
 }
+button:hover {
+	cursor: pointer;
+}

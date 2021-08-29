@@ -4,6 +4,7 @@
 
 <script lang="ts">
   import Inner from '$lib/components/Inner.svelte';
+  import CustomButton from '$lib/components/CustomButton.svelte';
 
   let m = { x: 0, y: 0 };
 
@@ -33,7 +34,12 @@
 
 <hr />
 
-<Inner on:my-message={handleMessage}/>
+<Inner on:my-message={ handleMessage }/>
+
+<hr />
+
+<h3>Custom Button</h3>
+<CustomButton on:click={ handleClick }/>
 
 <style>
   .mouse-range {
