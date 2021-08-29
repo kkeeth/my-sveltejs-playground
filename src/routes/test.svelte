@@ -9,6 +9,11 @@
   let htmlString: string = `this string contains some <strong>HTML!!!</strong>`;
   let count: number = 0;
   let user = { loggedIn: false };
+  const cats = [
+    { id: 'J---aiyznGQ', name: 'Keyboard Cat' },
+    { id: 'z_AbfPXTKms', name: 'Maru' },
+    { id: 'OUtn3pvWmpg', name: 'Henri The Existential Cat' }
+  ];
 
   $: if (count >= 10) {
     console.log(`count is dangerously high!`);
@@ -59,6 +64,18 @@
 { :else }
   <p>{count} is between 5 and 10</p>
 { /if }
+
+<hr />
+
+<h2>The Famous Cats of YouTube</h2>
+
+<ul>
+  { #each cats as { id, name }, i }
+    <li><a target="_blank" href="https://www.youtube.com/watch?v={ id }">
+      { i + 1 } : { name }
+    </a></li>
+  { /each }
+</ul>
 
 <style>
   h1 {
