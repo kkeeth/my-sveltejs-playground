@@ -7,8 +7,8 @@
 
   let title: string = 'This page is my test!!'
   let htmlString: string = `this string contains some <strong>HTML!!!</strong>`;
-
   let count: number = 0;
+  let user = { loggedIn: false };
 
   $: if (count >= 10) {
     console.log(`count is dangerously high!`);
@@ -17,6 +17,10 @@
 
   const incrementCount = () => {
     count += 1;
+  }
+
+  const toggle = () => {
+    user.loggedIn = !user.loggedIn;
   }
 </script>
 
@@ -34,6 +38,20 @@
   <CValue />
 </div>
 
+<hr />
+
+{ #if user.loggedIn }
+  <button on:click={ toggle }>
+    Log out
+  </button>
+{ /if }
+
+{ #if !user.loggedIn }
+  <button on:click={ toggle }>
+    Log in
+  </button>
+{ /if }
+
 <style>
   h1 {
     color: purple;
@@ -48,5 +66,11 @@
   button:hover {
     cursor: pointer;
     background: skyblue;
+  }
+
+  hr {
+    border-top: 1px solid #aaa;
+    width: 100%;
+    margin: 10px auto;
   }
 </style>
