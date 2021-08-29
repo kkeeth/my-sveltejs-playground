@@ -1,5 +1,5 @@
 <script>
-	export let count;
+	export let count = 100;
   $: doubled = count * 2;
 </script>
 

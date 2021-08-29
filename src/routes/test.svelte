@@ -29,6 +29,10 @@
   Clicked { count } { count === 1 ? 'time' : 'times' }
 </button>
 <CValue count={ count } />
+<div>
+  <p>No default value is given↓↓</p>
+  <CValue />
+</div>
 
 <style>
   h1 {
