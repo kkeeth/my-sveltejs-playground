@@ -4,6 +4,7 @@
 
 <script lang="ts">
   import CValue from '$lib/components/CValue.svelte';
+  import Thing from '$lib/components/Things.svelte';
 
   let title: string = 'This page is my test!!'
   let htmlString: string = `this string contains some <strong>HTML!!!</strong>`;
@@ -13,6 +14,13 @@
     { id: 'J---aiyznGQ', name: 'Keyboard Cat' },
     { id: 'z_AbfPXTKms', name: 'Maru' },
     { id: 'OUtn3pvWmpg', name: 'Henri The Existential Cat' }
+  ];
+  let things = [
+    { id: 1, name: 'apple' },
+    { id: 2, name: 'banana' },
+    { id: 3, name: 'carrot' },
+    { id: 4, name: 'doughnut' },
+    { id: 5, name: 'egg' },
   ];
 
   $: if (count >= 10) {
@@ -26,6 +34,10 @@
 
   const toggle = () => {
     user.loggedIn = !user.loggedIn;
+  }
+
+  const handleClick = () => {
+    things = things.slice(1);
   }
 </script>
 
@@ -76,6 +88,16 @@
     </a></li>
   { /each }
 </ul>
+
+<hr />
+
+<button on:click={ handleClick }>
+  Remove first thing
+</button>
+
+{ #each things as thing (Math.random()) }
+  <Thing name={thing.name}/>
+{ /each }
 
 <style>
   h1 {
