@@ -50,6 +50,16 @@
   </button>
 { /if }
 
+<hr />
+
+{ #if count > 10 }
+  <p>{count} is greater than 10</p>
+{ :else if 5 > count }
+  <p>{count} is less than 5</p>
+{ :else }
+  <p>{count} is between 5 and 10</p>
+{ /if }
+
 <style>
   h1 {
     color: purple;
