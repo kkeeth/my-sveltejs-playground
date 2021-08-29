@@ -137,10 +137,4 @@
     cursor: pointer;
     background: skyblue;
   }
-
-  hr {
-    border-top: 1px solid #aaa;
-    width: 100%;
-    margin: 10px auto;
-  }
 </style>
