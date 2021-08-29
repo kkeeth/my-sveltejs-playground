@@ -5,6 +5,7 @@
 <script lang="ts">
   import CValue from '$lib/components/CValue.svelte';
   import Thing from '$lib/components/Things.svelte';
+  import { getRandomNumber } from '../utils';
 
   let title: string = 'This page is my test!!'
   let htmlString: string = `this string contains some <strong>HTML!!!</strong>`;
@@ -22,12 +23,16 @@
     { id: 4, name: 'doughnut' },
     { id: 5, name: 'egg' },
   ];
+  let promise = getRandomNumber();
 
   $: if (count >= 10) {
     console.log(`count is dangerously high!`);
     count = 9;
   }
 
+  /**
+   * methods
+   */
   const incrementCount = () => {
     count += 1;
   }
@@ -38,6 +43,10 @@
 
   const handleClick = () => {
     things = things.slice(1);
+  }
+
+  const getNumber = () => {
+    promise = getRandomNumber();
   }
 </script>
 
@@ -80,7 +89,6 @@
 <hr />
 
 <h2>The Famous Cats of YouTube</h2>
-
 <ul>
   { #each cats as { id, name }, i }
     <li><a target="_blank" href="https://www.youtube.com/watch?v={ id }">
@@ -98,6 +106,21 @@
 { #each things as thing (Math.random()) }
   <Thing name={thing.name}/>
 { /each }
+
+
+<hr />
+
+<button on:click={ getNumber }>
+  generate random number
+</button>
+
+{ #await promise }
+  <p>...waiting</p>
+{ :then number }
+  <p>The number is { number }</p>
+{ :catch error }
+  <p style="color: red">{ error.message }</p>
+{ /await }
 
 <style>
   h1 {
